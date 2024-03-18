@@ -94,8 +94,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\miquelvm3\Desktop\raylib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\miquelvm3\Desktop\raylib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\miquelvm3\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Shooter%29\raylib\include;C:\Users\miquelvm3\Desktop\raylib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\miquelvm3\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Shooter%29\raylib\lib;C:\Users\miquelvm3\Desktop\raylib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
