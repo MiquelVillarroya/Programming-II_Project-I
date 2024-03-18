@@ -15,14 +15,13 @@ public:
 	void GetRect() {
 		cout << x << " " << y << endl;
 	}
-	friend Rectangle operator+=(const Rectangle& rect, const Rectangle& rect2);
+	friend Rectangle operator+=( Rectangle& rect, const Rectangle& rect2);
 };
 
-Rectangle operator+=(const Rectangle& rect, const Rectangle& rect2) {
-	Rectangle r;
-	r.x = rect.x + rect2.x;
-	r.y = rect.y + rect2.y;
-	return r;
+Rectangle operator+=( Rectangle& rect, const Rectangle& rect2) {
+	rect.x += rect2.x;
+	rect.y += rect2.y;
+	return rect;
 }
 
  void Transpose(Rectangle* rect) {
