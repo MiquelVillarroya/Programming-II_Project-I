@@ -5,7 +5,7 @@
 EXTERNDEF C vector:DWORD
 
 .data
-vector DD 5, 0
+vector DD 0
 
 .code
 asmAVG proc
