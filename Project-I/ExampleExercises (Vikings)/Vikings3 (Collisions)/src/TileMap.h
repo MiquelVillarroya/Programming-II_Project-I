@@ -63,8 +63,13 @@ public:
 	//Grounded tile = solid tile (blocks) or ladder tops.
 	bool TestCollisionGround(const AABB& box, int* py) const;
 
+	//Test if there is a ceiling tile one pixel above the given box
+	bool TestJumping(const AABB& box) const;
+
 	//Test if there is a ground tile one pixel below the given box
 	bool TestFalling(const AABB& box) const;
+
+
 
 private:
 	void InitTileDictionary();
@@ -72,8 +77,10 @@ private:
 	Tile GetTileIndex(int x, int y) const;
 	bool IsTileSolid(Tile tile) const;
 	bool IsTileLadderTop(Tile tile) const;
+	bool IsTileKey(Tile tile) const;
 	bool CollisionX(const Point& p, int distance) const;
 	bool CollisionY(const Point& p, int distance) const;
+	bool CollisionYJump(const Point& p, int distance) const;
 
 	//Tile map
 	Tile *map;

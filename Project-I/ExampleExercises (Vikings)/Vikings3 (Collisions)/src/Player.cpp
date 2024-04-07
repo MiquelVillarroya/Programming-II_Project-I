@@ -210,6 +210,7 @@ void Player::MoveY()
 {
 	AABB box, prev_box;
 	int prev_y;
+	box = GetHitbox();
 
 	if (state != State::JUMPING)
 	{
@@ -240,7 +241,7 @@ void Player::MoveY()
 			jump_delay = PLAYER_JUMP_DELAY;
 		
 			//Is the jump finished?
-			if (dir.y > PLAYER_JUMP_FORCE)
+			if (dir.y > PLAYER_JUMP_FORCE || map->TestJumping(GetHitbox()))
 			{
 				dir.y = PLAYER_SPEED;
 				StartFalling();

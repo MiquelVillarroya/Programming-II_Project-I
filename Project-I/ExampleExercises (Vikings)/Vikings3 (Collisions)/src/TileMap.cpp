@@ -58,6 +58,8 @@ void TileMap::InitTileDictionary()
 	dict_rect[(int)Tile::LOCK_RED] = { 6 * n, 2 * n, n, n };
 	dict_rect[(int)Tile::LOCK_YELLOW] = { 7 * n, 2 * n, n, n };
 
+	dict_rect[(int)Tile::KEY_RED] = { 6 * n, 3 * n, n, n };
+
 	dict_rect[(int)Tile::LASER_L] = { 0, 6 * n, n, n };
 	dict_rect[(int)Tile::LASER_R] = { 4 * n, 6 * n, n, n };
 	
@@ -131,6 +133,10 @@ bool TileMap::IsTileLadderTop(Tile tile) const
 {
 	return tile == Tile::LADDER_TOP_L || tile == Tile::LADDER_TOP_R;
 }
+bool TileMap::IsTileKey(Tile tile) const
+{
+	return tile == Tile::KEY_RED;
+}
 bool TileMap::TestCollisionWallLeft(const AABB& box) const
 {
 	return CollisionX(box.pos, box.height);
@@ -152,6 +158,10 @@ bool TileMap::TestCollisionGround(const AABB& box, int *py) const
 		return true;
 	}
 	return false;
+}
+bool TileMap::TestJumping(const AABB& box) const
+{
+	return CollisionYJump(box.pos + Point(0, 0), box.width);
 }
 bool TileMap::TestFalling(const AABB& box) const
 {
@@ -189,9 +199,30 @@ bool TileMap::CollisionY(const Point& p, int distance) const
 	for (x = x0; x <= x1; ++x)
 	{
 		tile = GetTileIndex(x, y);
-
+		
 		//One solid or laddertop tile is sufficient
 		if (IsTileSolid(tile) || IsTileLadderTop(tile))
+			return true;
+	}
+	return false;
+}
+bool TileMap::CollisionYJump(const Point& p, int distance) const
+{
+	int x, y, x0, x1;
+	Tile tile;
+
+	//Calculate the tile coordinates and the range of tiles to check for collision
+	y = p.y / TILE_SIZE;
+	x0 = p.x / TILE_SIZE;
+	x1 = (p.x + distance - 1) / TILE_SIZE;
+
+	//Iterate over the tiles within the horizontal range
+	for (x = x0; x <= x1; ++x)
+	{
+		tile = GetTileIndex(x, y);
+
+		//One solid or laddertop tile is sufficient
+		if (IsTileKey(tile))
 			return true;
 	}
 	return false;
