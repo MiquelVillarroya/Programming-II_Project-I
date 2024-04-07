@@ -8,8 +8,7 @@ protected:
 	unsigned int attack;
 
 public:
-	Pokemon(){}
-	Pokemon(string pName) : name(pName), type("noType"), attack(10) {}
+	Pokemon(const string &pName) : name(pName), type("noType"), attack(10) {}
 	string getName() {
 		return name;
 	}
@@ -22,7 +21,7 @@ public:
 
 class ElectricPokemon : public Pokemon {
 public:
-	ElectricPokemon(string pName) : Pokemon(pName){
+	ElectricPokemon(const string &pName) : Pokemon(pName){
 		type = "Electric";
 	}
 	unsigned int damageAttack(Pokemon* const victim) override{
