@@ -107,8 +107,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\miquelvm3\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Vikings%29\raylib\include;C:\Users\Keli11\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Vikings%29\raylib\include;C:\raylib\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\miquelvm3\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Vikings%29\raylib\lib;C:\Users\Keli11\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Vikings%29\raylib\lib;C:\raylib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\miquelvm3\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Vikings%29\raylib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\miquelvm3\Desktop\Github\Programming-II_Project-I\Project-I\ExampleExercises %28Vikings%29\raylib\lib;C:\raylib\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>

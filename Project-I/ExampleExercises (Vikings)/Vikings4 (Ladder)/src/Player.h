@@ -12,11 +12,17 @@
 //Horizontal speed and vertical speed while falling down
 #define PLAYER_SPEED			2
 
+//Vertical speed while on a ladder
+#define PLAYER_LADDER_SPEED		1
+
+//Frame animation delay while on a ladder
+#define ANIM_LADDER_DELAY		(2*ANIM_DELAY)
+
 //When jumping, initial jump speed and maximum falling speed
 #define PLAYER_JUMP_FORCE		10
 
 //Frame delay for updating the jump velocity
-#define PLAYER_JUMP_DELAY		4
+#define PLAYER_JUMP_DELAY		2
 
 //Player is levitating when abs(speed) <= this value
 #define PLAYER_LEVITATING_SPEED	4
@@ -35,7 +41,7 @@ enum class PlayerAnim {
 	JUMPING_LEFT, JUMPING_RIGHT,
 	LEVITATING_LEFT, LEVITATING_RIGHT,
 	FALLING_LEFT, FALLING_RIGHT,
-	CLIMBING_LEFT, CLIMBING_RIGHT,
+	CLIMBING, CLIMBING_PRE_TOP, CLIMBING_TOP,
 	SHOCK_LEFT, SHOCK_RIGHT,
 	TELEPORT_LEFT, TELEPORT_RIGHT,
 	NUM_ANIMATIONS
@@ -60,14 +66,19 @@ private:
 	//Player mechanics
 	void MoveX();
 	void MoveY();
+	void LogicJumping();
+	void LogicClimbing();
 
 	//Animation management
 	void SetAnimation(int id);
+	PlayerAnim GetAnimation();
 	void Stop();
 	void StartWalkingLeft();
 	void StartWalkingRight();
 	void StartFalling();
 	void StartJumping();
+	void StartClimbingUp();
+	void StartClimbingDown();
 	void ChangeAnimRight();
 	void ChangeAnimLeft();
 
@@ -75,6 +86,10 @@ private:
 	bool IsAscending() const;
 	bool IsLevitating() const;
 	bool IsDescending() const;
+
+	//Ladder get in/out steps
+	bool IsInFirstHalfTile() const;
+	bool IsInSecondHalfTile() const;
 
 	State state;
 	Look look;
