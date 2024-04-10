@@ -17,13 +17,29 @@ enum class Layer {
 class GameObject
 {
 	// TODO
+private:
+	Layer capa;
+
+public:
+	GameObject() : capa(Layer::Scene){}
+	void setLayer(Layer l) {
+		capa = l;
+	}
+	Layer layer() const {
+		return capa;
+	}
 };
 
 // It counts the number of objects in the parameter 'objects' that are in layer 'l'
 int countGameObjectsInLayer(const GameObject *objects, int numObjects, Layer l)
 {
 	// TODO
-	return 0;
+	int count = 0;
+	for (int i = 0; i < numObjects; ++i) {
+		if (objects[i].layer() == l) count++;
+	}
+
+	return count;
 }
 
 #endif

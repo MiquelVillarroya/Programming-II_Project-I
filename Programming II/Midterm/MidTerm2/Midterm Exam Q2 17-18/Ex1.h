@@ -34,7 +34,10 @@ public:
 	Race() : roles(nullptr){}
 	virtual ~Race(){}
 	bool acceptsRole(Role r) {
-		
+		for (int i = 0; roles[i] != Role::Last; ++i) {
+			if (roles[i] == r) return true;
+		}
+		return false;
 	}
 	virtual const char* name() const = 0;
 	virtual Faction faction() const = 0;
@@ -46,6 +49,7 @@ public:
 class Human : public Race {
 public:
 	Human(){
+		roles = new Role[7];
 		roles[0] = Role::Priest;
 		roles[1] = Role::Rogue;
 		roles[2] = Role::Warrior;
@@ -68,6 +72,7 @@ public:
 class NightElf : public Race {
 public:
 	NightElf() {
+		roles = new Role[6];
 		roles[0] = Role::Priest;
 		roles[1] = Role::Rogue;
 		roles[2] = Role::Warrior;
@@ -89,6 +94,7 @@ public:
 class Orc : public Race {
 public:
 	Orc() {
+		roles = new Role[6];
 		roles[0] = Role::Rogue;
 		roles[1] = Role::Warrior;
 		roles[2] = Role::Hunter;
@@ -110,6 +116,7 @@ public:
 class Troll : public Race {
 public:
 	Troll() {
+		roles = new Role[7];
 		roles[0] = Role::Priest;
 		roles[1] = Role::Rogue;
 		roles[2] = Role::Warrior;

@@ -6,8 +6,8 @@
 using namespace std;
 
 // Uncomment these lines in order to execute the tests
-//#define TEST_EX1
-//#define TEST_EX2
+#define TEST_EX1
+#define TEST_EX2
 #define TEST_EX3
 
 void unitTests();
