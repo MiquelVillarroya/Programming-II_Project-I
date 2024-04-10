@@ -6,8 +6,8 @@
 
 .data
 ; << DATA HERE >>
-A DD 5
-B DD 0
+A DD 25
+B DD 2
 quo DD ?
 rem DD ?
 
@@ -18,8 +18,7 @@ main proc
 	mov EAX, [A]
 	mov EBX, [B]
 	mov ECX, 0
-
-; divisor = 0
+; check if divisor = 0
 	cmp EBX, 0
 	je case_0
 	jmp comp

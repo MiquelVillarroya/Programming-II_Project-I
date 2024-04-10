@@ -3,9 +3,9 @@
 using namespace std;
 
 //You can modify this function and its parameters
-void DealDoubleDamage(float hp, float damage) 
+void DealDoubleDamage(float &hp, float damage) 
 {
-	
+	hp -= damage * 2;
 }
 
 //DO NOT MODIFY THIS FUNCTION, it is for testing only

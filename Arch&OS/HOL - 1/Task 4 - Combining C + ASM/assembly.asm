@@ -5,7 +5,7 @@
 EXTERNDEF C vector:DWORD
 
 .data
-vector DD 0
+vector DD 13, 6, 25, 9, 3, 12, 55, 67, 23, 32, 6, 41, 5, 0
 
 .code
 asmAVG proc
@@ -27,7 +27,7 @@ comp:
 
 result:
 	shr ECX, 2
-	inc ECX		; This is for including the zero (0) as length of the array, we can delete it if we do not consider it part of it's length
+	inc ECX		; This is for including the zero (0) as length of the array, we can delete it if we do not consider it part of it's length (therefore the average values changes)
 	mov EAX, EBX
 	idiv ECX
 	ret

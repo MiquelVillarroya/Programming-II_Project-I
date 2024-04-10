@@ -11,9 +11,9 @@ using namespace std;
 
 /*INSERT YOUR NAME HERE*/
 
-//#define TEST_EX_1
-//#define TEST_EX_2
-//#define TEST_EX_3
+#define TEST_EX_1
+#define TEST_EX_2
+#define TEST_EX_3
 #define TEST_EX_4
 #define TEST_EX_5
 
@@ -26,6 +26,7 @@ void testExercise5();
 int main()
 {
     testExercise1();
+    Ex2();
     testExercise2();
     testExercise3();
     testExercise4();

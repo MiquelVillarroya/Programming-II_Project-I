@@ -9,4 +9,7 @@ int anotherNum =42;
 void Ex3() {
 
 	//Insert code Here
+
+	ptr = &num;
+	*ptr = anotherNum;
 }
