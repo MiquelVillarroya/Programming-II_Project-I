@@ -82,8 +82,6 @@ AppStatus Scene::LoadLevel(int stage)
 	Point pos;
 	int *map = nullptr;
 	Object *obj;
-
-	RenderChangeLevel();
 	
 	ClearLevel();
 
@@ -249,7 +247,6 @@ void Scene::Update()
 
 	}
 
-
 	level->Update();
 	player->Update();
 	CheckCollisions();
@@ -326,17 +323,6 @@ void Scene::RenderObjectsDebug(const Color& col) const
 	{
 		obj->DrawDebug(col);
 	}
-}
-void Scene::RenderChangeLevel() {
-	BeginMode2D(camera);
-	while (camera.rotation != 360) {
-	camera.rotation++;
-	level->Render();
-	WaitTime(0.005);
-	}
-	camera.rotation = 0;
-	EndMode2D();
-
 }
 void Scene::RenderGUI() const
 {
