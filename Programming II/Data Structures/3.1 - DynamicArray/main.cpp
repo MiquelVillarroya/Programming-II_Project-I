@@ -60,6 +60,8 @@ public:
 		}
 		cout << endl;
 	}
+
+	int& operator[](unsigned int index);
 };
 
 int main() {
