@@ -61,7 +61,30 @@ public:
 		cout << endl;
 	}
 
-	int& operator[](unsigned int index);
+	int& operator[](unsigned int index) {
+		return mArray[index];
+	}
+	const int& operator[](unsigned int index) const {
+		return mArray[index];
+	}
+
+	bool empty() const {
+		if (mSize == 0) return true;
+		else			return false;
+	}
+	unsigned int size() const {
+		return mSize;
+	}
+
+	void shrink_to_fit() {
+		mCapacity = mSize;
+		while (mCapacity % DYNAMIC_ARRAY_CHUNK_SIZE != 0) {
+			mCapacity++;
+		}
+	}
+	unsigned int GetCapacity() const{
+		return mCapacity;
+	}
 };
 
 int main() {
@@ -77,7 +100,40 @@ int main() {
 	a.insert(2, 70);
 	a.printArray();
 	a.erase(3);
+	cout << a[2] << endl;
 	a.printArray();
+	cout << "Empty? " << a.empty() << endl;
+	cout << "Size? " << a.size() << endl << endl;
 	a.clear();
+	cout << "Empty? " << a.empty() << endl;
+	cout << "Size? " << a.size() << endl << endl;
 	a.printArray();
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.push_back(3);
+	a.printArray();
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.erase(3);
+	a.printArray();
+	cout << a.GetCapacity() << endl;
+	a.shrink_to_fit();
+	cout << a.GetCapacity() << endl;
 }
