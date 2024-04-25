@@ -33,55 +33,62 @@ public:
 	//Modifiers
 	void push_front(const int& value)
 	{
-		if (num_elems == 0)
-		{
-			first = last = new Node;
-			first->value = value;
-			first->prev = nullptr;
-			first->next = nullptr;
-		}
-		else
-		{
-			Node* node = new Node;
-			node->value = value;
-			node->prev = nullptr;
-			node->next = first;
-			first->prev = node;
-			first = node;
-		}
-		num_elems++;
+		insert(0, value);
+
+		//if (num_elems == 0)
+		//{
+		//	first = last = new Node;
+		//	first->value = value;
+		//	first->prev = nullptr;
+		//	first->next = nullptr;
+		//}
+		//else
+		//{
+		//	Node* node = new Node;
+		//	node->value = value;
+		//	node->prev = nullptr;
+		//	node->next = first;
+		//	first->prev = node;
+		//	first = node;
+		//}
+		//num_elems++;
 	}
 	void push_back(const int& value)
 	{
-		if (num_elems == 0)
-		{
-			last = first = new Node;
-			last->value = value;
-			last->next = nullptr;
-			last->prev = nullptr;
-		}
-		else
-		{
-			Node* node = new Node;
-			node->value = value;
-			node->prev = last;
-			node->next = nullptr;
-			last->next = node;
-			last = node;
-		}
-		num_elems++;
+		insert(num_elems - 1, value);
+		//if (num_elems == 0)
+		//{
+		//	last = first = new Node;
+		//	last->value = value;
+		//	last->next = nullptr;
+		//	last->prev = nullptr;
+		//}
+		//else
+		//{
+		//	Node* node = new Node;
+		//	node->value = value;
+		//	node->prev = last;
+		//	node->next = nullptr;
+		//	last->next = node;
+		//	last = node;
+		//}
+		//num_elems++;
 	}
 	void pop_front()
 	{
-		first = first->next;
-		delete[] first->prev;
-		num_elems--;
+		erase(0);
+		
+		//first = first->next;
+		//delete[] first->prev;
+		//num_elems--;
 	}
 	void pop_back()
 	{
-		last = last->prev;
-		delete[] last->next;
-		num_elems--;
+		erase(num_elems - 1);
+
+		//last = last->prev;
+		//delete[] last->next;
+		//num_elems--;
 	}
 	void insert(unsigned int position, const int& value)
 	{
@@ -92,43 +99,96 @@ public:
 			first->prev = nullptr;
 			first->next = nullptr;
 		}
-		/*else
-		{
-			Node* node = new Node;
-			node = first;
-			Node* aux = new Node;
-			for (int i = 0; i < position - 1; ++i)
+		else {
+			Node* current = first;
+			for (int i = 1; i < position; ++i)
 			{
-				node = node->next;
+				current = current->next;			//Node in the position before the one to be inserted to
 			}
-			aux->value = value;
-			aux->next = node->next;
-			aux->next->prev = aux;
-			node->next = aux;
-			aux->prev = node;
-		}*/
+			Node* node = new Node;
+			node->value = value;
+
+			if (position == num_elems)
+			{
+				node->next = nullptr;
+				node->prev = current;
+				current->next = node;
+			}
+			else if (position == 0)
+			{
+				node->next = current;
+				node->prev = nullptr;
+				current->prev = node;
+				first = node;
+			}
+			else
+			{
+				node->next = current->next;
+				node->prev = current;
+				current->next->prev = node;
+				current->next = node;
+			}
+		}
 		num_elems++;
 	}
 	void erase(unsigned int position)
 	{
+		if (num_elems > 0)
+		{
+			Node* current = first;
+			for (int i = 1; i < position; ++i)
+			{
+				current = current->next;			//Node in the position before the one to be inserted to
+			}
 
+			if (position == 0)
+			{
+				first = current->next;
+				delete[] first->prev;
+				first->prev = nullptr;
+			}
+			else if (position + 1 == num_elems)
+			{
+				last = current;
+				delete[] last->next;
+				last->next = nullptr;
+
+			}
+			else
+			{
+				current->next = current->next->next;
+				delete current->next->prev;
+				current->next->prev = current;
+			}
+			num_elems--;
+		}
 	}
 	void clear()
-	{
-
-	}
-
-	void PrintList()
 	{
 		for (int i = 0; i < num_elems; ++i)
 		{
 			Node* aux = first;
-			for(int j = 0; j < i; ++j)
+			for (int j = num_elems - 1; j > i; --j)
 			{
 				aux = aux->next;
 			}
-			cout << aux->value << " ";
+			delete aux;
 		}
+		num_elems = 0;
+	}
+
+	void PrintList()
+	{
+		if (num_elems > 0)
+			for (int i = 0; i < num_elems; ++i)
+			{
+				Node* aux = first;
+				for (int j = 0; j < i; ++j)
+				{
+					aux = aux->next;
+				}
+				cout << aux->value << " ";
+			}
 		cout << endl;
 	}
 
@@ -187,13 +247,28 @@ int main() {
 
 	l.pop_back();
 	l.PrintList();
-	
+
+	l.insert(0, 0);
+	l.PrintList();
+
 	l.insert(2, 7);
 	l.PrintList();
 
+	l.insert(5, 99);
+	l.PrintList();
+	//0 2 7 3 5 99
 
+	l.erase(4);
+	l.PrintList();
+
+	l.erase(4);
+	l.PrintList();
+
+	l.erase(0);
 	l.PrintList();
 
 	cout << "Empty? " << l.empty() << " Size: " << l.size() << endl;
+	
+	l.clear();
 	cout << "Empty? " << l.empty();
 }
