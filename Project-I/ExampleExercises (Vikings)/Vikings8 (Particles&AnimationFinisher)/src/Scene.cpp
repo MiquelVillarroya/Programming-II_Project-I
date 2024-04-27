@@ -139,6 +139,7 @@ AppStatus Scene::Init()
 	shots->SetParticleManager(particles);
 	//Assign the shot manager reference to the enemy manager so enemies can add shots
 	enemies->SetShotManager(shots);
+	
 
     return AppStatus::OK;
 }

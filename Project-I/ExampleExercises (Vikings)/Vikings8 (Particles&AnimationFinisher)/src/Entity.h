@@ -37,7 +37,7 @@ protected:
 
 	//Logical/physical model
 	Point pos, dir;
-	int width, height;				
+	int width, height;
 
 	//Representation model
 	int frame_width, frame_height;
