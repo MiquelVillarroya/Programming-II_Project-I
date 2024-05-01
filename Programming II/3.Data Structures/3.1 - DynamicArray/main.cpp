@@ -13,7 +13,7 @@ private:
 	void IncreaseCapacity() {
 		mCapacity += DYNAMIC_ARRAY_CHUNK_SIZE;
 		int* arr = new int[mCapacity];
-		for (int i = 0; i < mSize; ++i) {
+		for (int i = 0; i < mSize - DYNAMIC_ARRAY_CHUNK_SIZE; ++i) {
 			arr[i] = mArray[i];
 		}
 		delete[] mArray;
