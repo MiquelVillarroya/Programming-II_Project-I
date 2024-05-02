@@ -36,21 +36,22 @@ void Insert(BstNode** root, int value)
 
 bool Search(BstNode** root, int value)
 {
-	if ((*root)->data == value)
-	{
-		return true;
-	}
-	else if ((*root)->leftChild == nullptr && (*root)->rightChild == nullptr)
+
+	if (*root == nullptr)
 	{
 		return false;
 	}
+	else if ((*root)->data == value)
+	{
+		return true;
+	}
 	else if (value <= (*root)->data)
 	{
-		Search(&(*root)->leftChild, value);
+		return Search(&(*root)->leftChild, value);
 	}
 	else if (value > (*root)->data)
 	{
-		Search(&(*root)->rightChild, value);
+		return Search(&(*root)->rightChild, value);
 	}
 }
 
