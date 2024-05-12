@@ -80,7 +80,6 @@ public:
 					break;
 				}
 			}
-			delete tempNode;
 		}
 
 		_numElems++;
