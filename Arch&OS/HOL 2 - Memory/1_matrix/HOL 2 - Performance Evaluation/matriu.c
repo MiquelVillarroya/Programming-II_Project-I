@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-#define N 1024
+#define N 4096*4
 #define ROWS N
 #define COLS N
 
