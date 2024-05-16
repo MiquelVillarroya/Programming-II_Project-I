@@ -1,2 +1,2 @@
 # Programming II & Project I
-Repository for exercises and notes related with Programming II and Project I subjects
+Repository for exercises and notes related with Programming II, Project I and Architecture & OS subjects

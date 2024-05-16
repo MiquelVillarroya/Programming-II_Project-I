@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HOL 2 - Performance Evaluation", "HOL 2 - Performance Evaluation.vcxproj", "{C709A503-0BA5-4B53-91FF-82E1893C53F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Debug|x64.ActiveCfg = Debug|x64
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Debug|x64.Build.0 = Debug|x64
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Debug|x86.ActiveCfg = Debug|Win32
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Debug|x86.Build.0 = Debug|Win32
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Release|x64.ActiveCfg = Release|x64
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Release|x64.Build.0 = Release|x64
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Release|x86.ActiveCfg = Release|Win32
+		{C709A503-0BA5-4B53-91FF-82E1893C53F0}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCE36133-DDBB-4BA2-BD45-DDBC9A59624E}
+	EndGlobalSection
+EndGlobal
