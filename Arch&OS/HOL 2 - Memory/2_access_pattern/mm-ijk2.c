@@ -15,7 +15,7 @@ double measure( void (*f)(void) )
 
 void init_data();
 void code();
-int main() {
+//int main() {
   double t;
   int i, j;
 

@@ -53,7 +53,7 @@ int main()
 	waitReturn();
 
 //for (; i < 8192 ; i++) {
-	for (; i < 133000 ; i++) {
+	for (; i < 12000 ; i++) {
 		printf(" write Y[%d] access at %p (illegal)", i, &y[i]);
 		y[i] = 0;
 		printf("SUCCEESS! What?\n");
